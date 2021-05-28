@@ -1,0 +1,65 @@
+.contact{
+    .title{
+        text-align: center;
+        margin: 2rem;
+    }
+    .error{
+        margin: 0 .5rem;
+        font-size: 1rem;
+    }
+}
+.contact-content{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    padding: 2rem;
+    justify-content: center;
+    align-content: center;
+    @include tablet(){
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+
+    .form-contact{
+        // display: flex;
+        // justify-content: center;
+        width: 90%;
+        @include tablet(){
+            width: 70%;
+        }
+
+
+        input{
+            margin: 0.5rem;
+        }
+
+        textarea{
+            border-radius: 10px;
+            margin: .5rem;
+            padding: .5rem;
+            font-family: $primary-font;
+
+            &:focus{
+                outline: none;
+            }
+        }
+        button{
+            margin: .5rem;
+            width: 100px;
+            background-color: $primaryColor;
+            color: white;
+        }
+
+    }
+
+    .img{
+        width: 100%;
+        img{
+            width: 100%
+        }
+    }
+    .lds-ring div{
+        color: $primaryColor;
+        border: 8px solid $primaryColor;
+        border-color: $primaryColor transparent transparent transparent;
+    }
+}

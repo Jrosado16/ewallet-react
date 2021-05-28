@@ -1,0 +1,33 @@
+
+
+
+@mixin button($color: transparent, $border: none) {
+    background-color: $color;
+    
+}
+
+@mixin image($image) {
+    background-image: url($image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+// Media Queries
+@mixin phone {
+    @media only screen and (min-width: #{$phone}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media only screen and (min-width: #{$tablet}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media only screen and (min-width: #{$desktop}) {
+        @content;
+    }
+}

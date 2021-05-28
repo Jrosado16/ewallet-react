@@ -1,0 +1,12 @@
+export const LOGIN = 'LOGIN';
+export const LOADING = 'LOADING';
+export const ERROR = 'ERROR';
+export const TOKEN = 'TOKEN';
+export const GET_USER = 'GET_USER';
+export const SET_BALANCE = 'SET_BALANCE';
+export const ADD_BALANCE = 'ADD_BALANCE';
+export const RESET_MSG = 'RESET_MSG';
+export const ERROR_MSG = 'ERROR_MSG';
+export const LOGOUT = 'LOGOUT';
+export const REGISTER = 'REGISTER';
+export const CONTACT = 'CONTACT';

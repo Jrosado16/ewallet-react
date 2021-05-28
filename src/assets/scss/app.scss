@@ -1,0 +1,22 @@
+$color: red;
+// #0B0146
+//  ff5500
+@import 'general';
+@import 'mixins';
+@import 'header';
+@import 'class';
+@import 'info';
+@import 'login';
+@import 'profile';
+@import 'contact';
+
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    box-sizing: border-box;
+}
+body{
+    font-family: $primary-font
+}

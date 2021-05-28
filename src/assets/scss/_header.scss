@@ -1,0 +1,129 @@
+header{
+    width: 100%;
+    height: 60vh;
+    color: $primaryColor;
+    background: url('../img/fondo.jpg') no-repeat;
+    .fondo-header{
+        width: 100%;
+        height: 60vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        background-size:  cover;
+        // background-position: bottom;
+        display: grid;
+        grid-template-rows: 10% 90%;
+    }
+
+    @include tablet(){
+        height: 80vh;
+        .fondo-header{
+            height: 80vh;
+        }
+
+    }
+
+    .navbar{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .logo{
+        margin: 1rem;
+    }
+
+    .navegation {
+        .nav{
+            display: flex;
+            li{
+                list-style: none;
+                margin: 1rem;
+            }
+            a{
+                color: $primaryColor;
+                text-decoration: none;
+            }
+        }
+    }
+    .content-header{
+        text-align: center;
+
+        .ewallet{
+            margin: 1rem;
+            text-align: left;
+            padding-top: 2rem;
+            color: white;
+            .name{
+                font-size: 4rem;
+            }
+            .description{
+                color: #bebebe;
+            }
+            button{
+                margin-top: 1rem;
+                font-size: 1.1rem;
+                background-color: $primaryColor;
+                color: white;
+                padding: 1rem 2rem;
+                border: 1px solid $primaryColor;
+                &:hover{
+                background-color: transparent;
+                // color: ;
+                }
+            }
+        }
+
+        .e-img{
+            text-align: center;
+            img{
+               display: none;
+            //    width: 300px;
+            }
+        }
+
+    }
+
+    
+    @include tablet(){
+        .content-header{
+            // width: 100%;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            // align-items: center;
+            padding: 4rem;
+    
+            .ewallet{
+                // height: 5rem;
+                padding-top: 2rem;
+                color: white;
+                .name{
+                    font-size: 4rem;
+                }
+                .description{
+                    color: #bebebe;
+                }
+                button{
+                    margin-top: 1rem;
+                    font-size: 1.1rem;
+                    background-color: $primaryColor;
+                    color: white;
+                    padding: 1rem 2rem;
+                    border: 1px solid $primaryColor;
+                    &:hover{
+                    background-color: transparent;
+                    // color: ;
+                    }
+                }
+            }
+    
+            .e-img{
+                text-align: right;
+                img{
+                    display: block;
+                    width: 500px;
+                    color: white;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,151 @@
+li{
+    list-style: none;
+    margin: 0 1rem;
+}
+.nav-profile{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background: $secondaryColor;
+    color: white;
+
+    ul{
+        display: flex;
+        li{
+            list-style: none;
+            margin: 0 1rem;
+        }
+        a{
+            text-decoration: none;
+            color: white
+        }
+    }
+}
+.profile{
+    width: 100%;
+    // padding: 2rem;
+    // display: flex;
+    @include tablet(){
+        display: flex;
+    }
+
+
+}
+
+.transfer{
+    text-align: center;
+    margin: 2rem 0;
+    // padding: 1rem;
+    width: 100%;
+    form{
+        margin: 0 auto;
+        width: 70%;
+    }
+    .center{
+        text-align: center;
+    }
+    button{
+        background-color: $secondaryColor;
+        margin: .5rem 0;
+        color: white;
+    }
+    input{ 
+        margin: .5rem 0;
+    }
+}
+@include tablet(){
+    .transfer{
+        width: 60%;
+    }
+}
+.logout{
+    cursor: pointer;
+}
+.profile-content{
+    margin: 2rem 0;
+    text-align: center;
+    // width: 60%;
+    .name-user{
+        font-size: 2.5rem;
+        font-family: $secondary-font;
+        // font-weight: 600;
+    }
+    @include tablet(){
+        width: 60%;
+        text-align: left;
+        padding: 2rem;
+
+        form{
+            width: 70%
+        }
+
+
+    }
+    .title{
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+
+    .balance{
+        // width: 70%;
+        padding: 1rem;
+        border-radius: 10px;
+        margin: 2rem 0;
+        box-shadow: 0 5px 15px 0 rgb(7 33 66 / 15%);
+
+        .description{
+            font-size: 1.3rem;
+        }
+        .amount{
+            font-size: 2rem;
+            margin: 1rem;
+            font-weight: 0;
+            font-family: $secondary-font;
+            color: rgb(95, 95, 95);
+        }
+
+    }
+
+    select{
+        padding: .5rem;
+        border-radius: 10px;
+        // border: 1px solid rgb(117, 117, 117);
+        background: transparent;
+        // border: 2px solid $secondaryColor;
+        // color: $secondaryColor;
+        // font-size: 1.1rem;
+        margin: .5rem 1rem .5rem 0;
+        font-weight: 600;
+        &:focus{
+            outline: none;
+        }
+
+        option{
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+    }
+    button{
+        margin: 1rem 0;
+        padding: .5rem 1rem;
+        border-radius: 10px;
+        // border: 1px solid rgb(117, 117, 117);
+        background: $secondaryColor;
+        border: 2px solid $secondaryColor;
+        color: white;
+        // font-size: 1.1rem;
+        font-weight: 600;
+        &:focus{
+            outline: none;
+        }
+
+        option{
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+    }
+    input{
+        font-size: 1.1rem;
+        margin-right: 1rem;
+    }
+}
