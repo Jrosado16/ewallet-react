@@ -10,3 +10,4 @@ export const ERROR_MSG = 'ERROR_MSG';
 export const LOGOUT = 'LOGOUT';
 export const REGISTER = 'REGISTER';
 export const CONTACT = 'CONTACT';
+export const RECORD = 'RECORD';

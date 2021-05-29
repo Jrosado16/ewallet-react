@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import registerSVG from '../assets/img/register.svg'
 import { connect } from "react-redux";
 import * as usersActions from '../redux/actions/users.actions'
 import Loading from '../components/Loading';
 import Error from '../components/Error';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 const initState = {
     firstName: '',
@@ -34,9 +34,20 @@ const validate = values => {
 
 const Register = (props) => {
     console.log(props)
-    const { register, loading, userError, message } = props;
+    const history = useHistory();
+
+    const { register, loading, userError, message, getToken, getProfile, getRecord, users } = props;
     const [formUser, setformUser] = useState(initState)
     const [error, setError] = useState(initState)
+
+    useEffect(()=> {
+        getToken();
+        if( Object.keys(users).length){
+            getProfile();
+            getRecord()
+            history.push("/profile");
+        }
+    }, [users])
 
     const handleSubmit = (e) => {
         e.preventDefault()

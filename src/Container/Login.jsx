@@ -36,6 +36,7 @@ const Login = (props) => {
         console.log(Object.keys(users).length)
         if( Object.keys(users).length){
             props.getProfile();
+            props.getRecord()
             history.push("/profile");
         }
     }, [users])

@@ -1,12 +1,12 @@
 import { 
-    LOADING, ERROR, LOGIN, TOKEN, GET_USER, SET_BALANCE, 
+    LOADING, ERROR, LOGIN, TOKEN, GET_USER, SET_BALANCE, RECORD,
     ADD_BALANCE, RESET_MSG, ERROR_MSG, LOGOUT, REGISTER, CONTACT
 } 
 from '../type/users.type';
 import axios from 'axios';
 
-// let URL = 'http://localhost:3000';
-let URL = 'https://pruebanestjs.herokuapp.com';
+let URL = 'http://localhost:3000';
+// let URL = 'https://pruebanestjs.herokuapp.com';
 
 export const login = (user) => async (dispatch) => {
     dispatch({
@@ -14,7 +14,6 @@ export const login = (user) => async (dispatch) => {
     })
     try {
         const resp = await axios.post(`${URL}/auth/login`, user);
-        console.log(resp.data.access_token)
         localStorage.setItem('token', resp.data.access_token);
         dispatch({
             type: LOGIN,
@@ -71,9 +70,8 @@ export const getProfile = () => async (dispatch) => {
               'Authorization': 'Bearer ' + mytoken
             }
         }
-        console.log('profile')
         const resp = await axios.get(`${URL}/users/profile`, config);
-        console.log(resp)
+        // console.log('profile', resp.data)
         dispatch({
             type: GET_USER,
             payload: resp.data
@@ -96,7 +94,6 @@ export const updateBalance = (amount, type) => async (dispatch) => {
             }
         }
         const resp = await axios.post(`${URL}/record/${type}`, {amount}, config);
-        console.log(resp)
         dispatch({
             type: SET_BALANCE,
             payload: resp.data
@@ -119,23 +116,19 @@ export const transferBalance = (data) => async (dispatch, getState) => {
               'Authorization': 'Bearer ' + mytoken
             }
         }
-        console.log('pasa')
         const resp = await axios.post(`${URL}/record/transfer`, data, config);
-        console.log(resp)
-        console.log('aqui tambien')
-
+        
+        console.log('transfer',resp.data)
         dispatch({
             type: ADD_BALANCE,
             payload: 'Funds Transferred'
         })
     } catch (error) {
-        console.log('error.message')
-        console.log(error.message)
+        console.log('no encontrado');
         dispatch({
             type: ERROR,
             payload: 'User not Found'
         })
-        
     }
 }
 
@@ -178,4 +171,33 @@ export const ftContact = (user) => (dispatch) => {
                 payload: "Error try again"
             })
         })
+}
+
+export const getRecord = (type = "record") => (dispatch) => {
+    const mytoken = localStorage.getItem('token');
+    let config = {
+        headers: {
+          'Authorization': 'Bearer ' + mytoken
+        }
+    }
+
+    dispatch({
+        type: LOADING
+    })
+    axios.get(`${URL}/${type}`, config)
+        .then(resp => {
+            // console.log(resp.data)
+            dispatch({
+                type: RECORD,
+                payload: resp.data
+            })
+
+        })
+        .catch(e => {
+            dispatch({
+                type: ERROR,
+                payload: "Error try again"
+            })
+        })
+
 }

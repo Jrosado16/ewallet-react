@@ -1,12 +1,13 @@
 import { 
     LOADING, ERROR, LOGIN, TOKEN, GET_USER, SET_BALANCE, 
-    ADD_BALANCE, RESET_MSG, ERROR_MSG, LOGOUT, REGISTER, CONTACT
+    ADD_BALANCE, RESET_MSG, ERROR_MSG, LOGOUT, REGISTER, CONTACT, RECORD
 } from '../type/users.type';
 const initialState = {
     users: {},
     loading: false,
     userError: '',
-    message: ''
+    message: '',
+    record: []
 }
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -18,7 +19,7 @@ const userReducer = (state = initialState, action) => {
             return { ...state, loading: false, userError: '', message: action.payload}
 
         case LOADING: 
-            return { ...state, loading: true, userError: '', message: ''}
+            return { ...state, loading: true,}
 
         case ERROR: 
         case ERROR_MSG:
@@ -36,8 +37,12 @@ const userReducer = (state = initialState, action) => {
 
         case RESET_MSG: 
             return { ...state, loading: false, userError: '', message: ''}
-            case RESET_MSG: 
-        return { ...state, loading: false, userError: '', message: action.payload}
+
+        case RESET_MSG: 
+            return { ...state, loading: false, userError: '', message: action.payload}
+
+        case RECORD: 
+            return { ...state, record: action.payload, loading: false}
         case LOGOUT: 
             return { ...initialState}
         default: 

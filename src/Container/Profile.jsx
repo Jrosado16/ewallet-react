@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom'
 import Loading from '../components/Loading';
+import Record from '../components/Record';
 import Transfer from '../components/Transfer';
 import * as usersActions from '../redux/actions/users.actions'
 
 const validate = values => {
     const erros = {}
-    console.log("values",values)
     if(values.type == ""){
         erros.type = 'required'
     }
@@ -138,6 +138,7 @@ const MyProfile = ({props}) => {
                 </div>
                 <Transfer />
             </div>
+            <Record />
         </>
     )
 

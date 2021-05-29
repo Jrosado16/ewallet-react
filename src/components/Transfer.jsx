@@ -18,8 +18,10 @@ const initState = {
     amount: ''
 }
 const Transfer = (props) => {
-    console.log(props)
-    const {getProfile, errorMsg, transferBalance, userError, message, resetMsg, users: { profile } } = props;
+    const {getProfile, errorMsg, transferBalance, 
+        userError, message, resetMsg, users: { profile },
+        getRecord
+    } = props;
     //state form
     const [formBalance, setFormBalance] = useState(initState)
     //state error
@@ -38,7 +40,7 @@ const Transfer = (props) => {
         resetMsg();
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         const result = validate(formBalance);
         // if there is an error we load the wrong values
@@ -47,14 +49,22 @@ const Transfer = (props) => {
             // props.login(formUser)
             console.log(formBalance.userReceived)
             if(formBalance.amount <= profile.balance){
-                transferBalance(formBalance)
-                setFormBalance(initState);
-                getProfile()
+                // if(formBalance.userReceived == profile.email){
+                    // errorMsg('You can\'t send it to you');
+                // }else{
+                    setFormBalance(initState);
+                    await transferBalance(formBalance)
+                    await getProfile()
+                    await getRecord()
+                // }
             }else{
                 errorMsg('Insufficient Balance');
             }
         }
     }
+    // console.log('mesnaje', props.message)
+    console.log('props', props)
+
     return (  
         <div className="transfer">
             <div className="title">Transfer Funds</div>
